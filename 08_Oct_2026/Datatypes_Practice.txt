@@ -53,88 +53,104 @@ db.datatype_practice.insertMany([
     }
 ])
 
-Ans:1
+1. Display all products.
+
 db.datatype_practice.find()
 
-Ans:2
+2. Find the product named Laptop.
+
 db.datatype_practice.find({
     product_name: "Laptop"
 })
 
-Ans:3
+3. Find products whose price is greater than 10000.
+
 db.datatype_practice.find({
     price: { $gt: 10000 }
 })
 
-Ans:4
+4. Find products having stock less than 10.
+
 db.datatype_practice.find({
     stock: { $lt: 10 }
 })
 
-Ans:5
+5. Find products where: available = true
+
 db.datatype_practice.find({
     available: true
 })
 
-Ans:6
+6. Find products where: available = false
+
 db.datatype_practice.find({
     available: false
 })
 
-Ans:7
+7. Find products launched after: 1 January 2026
+
 db.datatype_practice.find({
     launch_date: { $gt: ISODate("2026-01-01") }
 })
 
-Ans:8
+8. Find products available in the color Black .
+
 db.datatype_practice.find({
     colors: "Black"
 })
 
-Ans:9
+9. Find products available in both: Black & Blue
+
 db.datatype_practice.find({
     colors: { $all: ["Black", "Blue"] }
 })
 
-Ans:10
+10. Find products where the brand is Samsung.
+
 db.datatype_practice.find({
     "details.brand": "Samsung"
 })
 
-Ans:11
+11. Find products having more than 1 year warranty.
+
 db.datatype_practice.find({
     "details.warranty_years": { $gt: 1 }
 })
 
-Ans:12
+12. Increase the stock of product 502 by 5.
+
 db.datatype_practice.updateOne(
     { product_id: 502 },
     { $inc: { stock: 5 } }
 )
 db.datatype_practice.find({ product_id: 502 })
 
-Ans:13
+13. Change product 503 from unavailable to available.
+
 db.datatype_practice.updateOne(
     { product_id: 503 },
     { $set: { available: true } }
 )
 db.datatype_practice.find({ product_id: 503 })
 
-Ans:14
+14. Add the color White to product 501.
+
 db.datatype_practice.updateOne(
     { product_id: 501 },
     { $push: { colors: "White" } }
 )
 db.datatype_practice.find({ product_id: 501 })
 
-Ans:15
+15. Change the warranty of product 504 to 2 years.
+
 db.datatype_practice.updateOne(
     { product_id: 504 },
     { $set: { "details.warranty_years": 2 } }
 )
 db.datatype_practice.find({ product_id: 504 })
 
-Ans:16
+16. Display only: product_name, price
+
 db.datatype_practice.find(
     {},
     {
@@ -144,7 +160,8 @@ db.datatype_practice.find(
     }
 )
 
-Ans:17
+17. Find the datatype of the price field using $type.
+
 db.datatype_practice.find(
     {},
     {
@@ -153,7 +170,8 @@ db.datatype_practice.find(
     }
 )
 
-Ans:18
+18. Find the datatype of the available field.
+
 db.datatype_practice.find(
     {},
     {
@@ -162,7 +180,8 @@ db.datatype_practice.find(
     }
 )
 
-Ans:19
+19. Find the datatype of the launch_date field.
+
 db.datatype_practice.find(
     {},
     {
@@ -171,7 +190,8 @@ db.datatype_practice.find(
     }
 )
 
-Ans:20
+20. Find the datatype of the colors field.
+
 db.datatype_practice.find(
     {},
     {
