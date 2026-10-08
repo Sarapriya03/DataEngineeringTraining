@@ -22,6 +22,13 @@ db.products_embedded.insertOne({
     }
 })
 
+To access the attributes in "specifications", for example:ram
+
+db.products_embedded.findOne(
+    { product_id: 506 },
+    { "details.specifications.ram": 1, _id: 0 }
+)
+
 ---Scenario_02:Suppose customers give reviews for the products. If the reviews are small and are mainly accessed along with the product, we can embed the reviews inside the product document.---
 
 For example, for the Laptop:
@@ -44,6 +51,12 @@ db.products_embedded_reviews.insertOne({
         }
     ]
 })
+
+To access the attributes in "reviews", for example:rating
+
+db.products_embedded_reviews.findOne(
+    { product_id: 506 }
+).reviews[0].rating
 
 ---2.Use Case: Referencing---
 
