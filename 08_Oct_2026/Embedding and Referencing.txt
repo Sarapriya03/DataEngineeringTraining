@@ -1,0 +1,186 @@
+---1.Use Case: Embedding---
+
+---Scenario_01:Suppose each product has product specifications that are always accessed along with the product.---
+
+For example, the Laptop has brand, warranty, RAM, storage, and processor.
+
+In this case, we can embed the specifications inside the product document.
+
+db.products_embedded.insertOne({
+    product_id: 501,
+    product_name: "Laptop",
+    price: 65000,
+
+    details: {
+        brand: "Dell",
+        warranty_years: 2,
+        specifications: {
+            ram: "16 GB",
+            storage: "1 TB SSD",
+            processor: "Intel Core i7"
+        }
+    }
+})
+
+---Scenario_02:Suppose customers give reviews for the products. If the reviews are small and are mainly accessed along with the product, we can embed the reviews inside the product document.---
+
+For example, for the Laptop:
+
+db.products_embedded_reviews.insertOne({
+    product_id: 506,
+    product_name: "Laptop",
+    price: 65000,
+
+    reviews: [
+        {
+            customer_name: "Arun",
+            rating: 5,
+            comment: "Excellent laptop"
+        },
+        {
+            customer_name: "Priya",
+            rating: 4,
+            comment: "Good performance"
+        }
+    ]
+})
+
+---2.Use Case: Referencing---
+
+---Scenario_01:Suppose multiple products belong to the same brand.Instead of storing complete brand information repeatedly inside every product, we can create a separate brands collection and store the brand_id in the product.---
+
+Brand Collection:-
+
+db.brands.insertMany([
+    {
+        brand_id: 1,
+        brand_name: "Dell",
+        country: "USA"
+    },
+    {
+        brand_id: 2,
+        brand_name: "Sony",
+        country: "Japan"
+    },
+    {
+        brand_id: 3,
+        brand_name: "GreenSoul",
+        country: "India"
+    },
+    {
+        brand_id: 4,
+        brand_name: "Samsung",
+        country: "South Korea"
+    }
+])
+
+Product Collection:-
+
+db.products_referenced.insertMany([
+    {
+        product_id: 501,
+        product_name: "Laptop",
+        price: 65000,
+        brand_id: 1
+    },
+    {
+        product_id: 502,
+        product_name: "Headphones",
+        price: 4500,
+        brand_id: 2
+    },
+    {
+        product_id: 503,
+        product_name: "Office Chair",
+        price: 9000,
+        brand_id: 3
+    },
+    {
+        product_id: 504,
+        product_name: "Smart Watch",
+        price: 18000,
+        brand_id: 4
+    }
+])
+
+To retrieve the brand details:
+
+db.products_referenced.aggregate([
+    {
+        $lookup: {
+            from: "brands",
+            localField: "brand_id",
+            foreignField: "brand_id",
+            as: "brand_details"
+        }
+    }
+])
+
+---Scenario_02:Suppose each product is supplied by a supplier. A supplier can supply many products, so instead of storing the complete supplier information inside every product, we can create a separate suppliers collection.---
+
+Suppliers collection:-
+
+db.suppliers.insertMany([
+    {
+        supplier_id: 101,
+        supplier_name: "Tech World",
+        city: "Chennai"
+    },
+    {
+        supplier_id: 102,
+        supplier_name: "Audio Hub",
+        city: "Bangalore"
+    },
+    {
+        supplier_id: 103,
+        supplier_name: "Furniture Mart",
+        city: "Chennai"
+    }
+])
+
+Products referencing suppliers:-
+
+db.products_referenced_supplier.insertMany([
+    {
+        product_id: 501,
+        product_name: "Laptop",
+        price: 65000,
+        supplier_id: 101
+    },
+    {
+        product_id: 502,
+        product_name: "Headphones",
+        price: 4500,
+        supplier_id: 102
+    },
+    {
+        product_id: 503,
+        product_name: "Office Chair",
+        price: 9000,
+        supplier_id: 103
+    },
+    {
+        product_id: 504,
+        product_name: "Smart Watch",
+        price: 18000,
+        supplier_id: 101
+    }
+])
+
+To retrieve the supplier details:
+
+db.products_referenced_supplier.aggregate([
+    {
+        $lookup: {
+            from: "suppliers",
+            localField: "supplier_id",
+            foreignField: "supplier_id",
+            as: "supplier_details"
+        }
+    }
+])
+
+
+
+
+
