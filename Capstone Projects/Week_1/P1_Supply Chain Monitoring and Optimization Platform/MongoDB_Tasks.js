@@ -1,8 +1,6 @@
-// Supply Chain Project - Week 1 (SIMPLE VERSION) - MongoDB
-// Run in mongosh (paste it, or: mongosh --file simple_mongodb_shipments.js)
+// Supply Chain Monitoring and Optimization Platform
 
 use("supply_chain");
-db.shipments.drop();
 
 // 1. DATA
 db.shipments.insertMany([
