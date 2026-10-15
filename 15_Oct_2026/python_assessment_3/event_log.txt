@@ -1,0 +1,5 @@
+Event registration started
+Registrations validated
+Payments verified
+Tickets issued
+Event processing completed
