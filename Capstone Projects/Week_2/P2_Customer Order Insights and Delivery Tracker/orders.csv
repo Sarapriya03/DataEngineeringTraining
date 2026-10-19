@@ -1,0 +1,25 @@
+order_id,customer_id,product_name,quantity,amount,order_date,expected_date,delivery_date,status,issue
+1,1,Wireless Mouse,1,799,2026-09-01 10:15:00,2026-09-06,2026-09-05 14:30:00,Delivered,
+2,1,Laptop Bag,1,1499,2026-09-10 09:40:00,2026-09-15,2026-09-18 16:05:00,Delayed,Courier delay
+3,1,USB Cable,3,450,2026-09-25 18:20:00,2026-09-30,,Delayed,Courier delay
+4,2,Bluetooth Speaker,1,2499,2026-09-02 11:00:00,2026-09-07,2026-09-07 12:45:00,Delivered,
+5,2,Phone Case,2,598,2026-09-15 13:10:00,2026-09-20,2026-09-24 10:20:00,Delayed,Weather
+6,3,Keyboard,1,1299,2026-09-03 08:55:00,2026-09-08,2026-09-08 17:30:00,Delivered,
+7,3,Monitor Stand,1,1899,2026-09-18 15:25:00,2026-09-23,2026-09-23 11:10:00,Delivered,
+8,3,Power Bank,1,1599,2026-10-01 19:05:00,2026-10-06,,Delayed,Address not found
+9,4,Headphones,1,2999,2026-09-05 12:35:00,2026-09-10,2026-09-09 15:50:00,Delivered,
+10,4,Smart Watch,1,4999,2026-09-20 10:00:00,2026-09-25,2026-09-30 13:15:00,Delayed,Courier delay
+11,5,Backpack,1,1799,2026-09-07 16:45:00,2026-09-12,2026-09-14 09:30:00,Delayed,weather
+12,5,Water Bottle,2,700,2026-09-22 14:20:00,2026-09-27,2026-09-27 18:00:00,Delivered,
+13,6,Desk Lamp,1,999,2026-09-09 09:10:00,2026-09-14,2026-09-13 12:25:00,Delivered,
+14,6,Webcam,1,2199,2026-09-28 20:30:00,2026-10-03,,Delayed,Stock shortage
+15,7,Tablet Cover,1,899,2026-09-12 11:50:00,2026-09-17,2026-09-17 16:40:00,Delivered,
+16,7,Memory Card,2,1100,2026-10-02 10:25:00,2026-10-07,2026-10-09 14:55:00,Delayed,Address not found
+17,8,Yoga Mat,1,1250,2026-09-14 13:35:00,2026-09-19,2026-09-18 10:05:00,Delivered,
+18,8,Running Shoes,1,3499,2026-09-30 17:15:00,2026-10-05,2026-10-05 12:00:00,Delivered,
+19,2,Router,1,2799,2026-10-04 08:20:00,2026-10-12,,In Transit,
+20,1,Earbuds,1,1999,2026-10-06 15:05:00,2026-10-14,,In Transit,
+4,2,Bluetooth Speaker,1,2499,2026-09-02 11:00:00,2026-09-07,2026-09-07 12:45:00,Delivered,
+21,,Gaming Mouse,1,1499,2026-10-08 12:00:00,2026-10-13,,In Transit,
+22,4,Phone Stand,,399,2026-10-08 12:30:00,2026-10-13,,In Transit,
+23,5,Notebook,2,150,2026-09-25 09:00:00,2026-10-02,,Delayed,

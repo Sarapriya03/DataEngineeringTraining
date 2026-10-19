@@ -1,0 +1,9 @@
+customer_id,delayed_orders,total_delay_days,customer_name,city,region
+1,2,13,Arun Kumar,Chennai,South
+5,2,10,Rahul Das,Kolkata,East
+6,1,7,Meena Iyer,Madurai,South
+4,1,5,Sneha Patel,Mumbai,West
+2,1,4,Priya Sharma,Delhi,North
+3,1,4,Karthik Raj,Coimbatore,South
+7,1,2,Amit Verma,Lucknow,North
+8,0,0,Divya Nair,Pune,West
